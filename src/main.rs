@@ -49,25 +49,25 @@ fn password(t: u8) -> String {
         y = rand::thread_rng().gen_range(1..=4);
         if x >= (t / 2) {
             if verificador[0] == 0 {
-                index = rand::thread_rng().gen_range(1..=10);
+                index = rand::thread_rng().gen_range(0..10);
                 password.push_str(&numbers[index]);
                 verificador[0] = 1;
                 continue;
             }
             if verificador[1] == 0 {
-                index = rand::thread_rng().gen_range(1..=26);
+                index = rand::thread_rng().gen_range(0..26);
                 password.push_str(&lower[index]);
                 verificador[1] = 1;
                 continue;
             }
             if verificador[2] == 0 {
-                index = rand::thread_rng().gen_range(1..=26);
+                index = rand::thread_rng().gen_range(0..26);
                 password.push_str(&upper[index]);
                 verificador[2] = 1;
                 continue;
             }
             if verificador[3] == 0 {
-                index = rand::thread_rng().gen_range(1..=24);
+                index = rand::thread_rng().gen_range(0..24);
                 password.push_str(&specials[index]);
                 verificador[3] = 1;
                 continue;
@@ -116,5 +116,5 @@ fn password(t: u8) -> String {
             }
         }
     }
-    return password;
+    password
 }
